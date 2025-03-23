@@ -80,10 +80,10 @@ const images = {
     "up-left": "../assets/ZombieIsland/player/walking/up-left.png"
 }
   
-const fist = new Weapon("fist", 10, "meelee", 0, 0, "../assets/ZombieIsland/items/fist.png")
-const gun = new Weapon("gun", 5, "range", 10, 500, "../assets/ZombieIsland/items/gun.png")
-const machineGun = new Weapon("machine-gun", 2, "range", 50, 100, "../assets/ZombieIsland/items/gun.png")
-const player = new Player(0, 100, 0, [tileWidth, tileHeight], playerSpawn, playerToPosition, playerFromPosition, 275, images, "up", 1, [fist, gun, machineGun], fist); //Create player object
+const fist = new Weapon("fist", 10, "meelee", 0, "../assets/ZombieIsland/items/fist.png")
+const gun = new Weapon("gun", 5, "range", 500, "../assets/ZombieIsland/items/gun.png")
+const rifle = new Weapon("machine-gun", 2, "range", 100, "../assets/ZombieIsland/items/rifle.png")
+const player = new Player(0, 100, 0, [tileWidth, tileHeight], playerSpawn, playerToPosition, playerFromPosition, 275, images, "up", 1, [fist, gun, rifle], fist, 50); //Create player object
 
 const zombie = []; //Store zombies and drops in lists
 const drops = [];
@@ -123,10 +123,7 @@ window.onload = function() {
 spawnZombies(10, zombie, spawnCoordinates, tileWidth, tileHeight, map); //Spawn 10 zombies at the start
 
 let locked = false;
-
-
-
-
+let shooting = false;
 
 function displayGame() {
     if (player.health > 0) { //If the player is alive
@@ -214,6 +211,7 @@ function displayGame() {
                     playerAttack();
                 } else {
                     player.weapon.attack(player, map, projectiles, zombie[i]);
+                    shooting = true
 
                     if (frame > 6) { //If the animation has reached the end
                         frame = 1; //Set the frame to 0
@@ -312,11 +310,11 @@ function displayGame() {
                 if (player.health > 90) { //If health is higher than 90
                     player.health = 100; //Set the health to 100
                     player.damage += drops[i].damage; //Add the drop's damage to the player
-                    player.weapon.ammo += drops[i].ammo;
+                    player.ammo += drops[i].ammo;
                 } else { //If health is lower than 90
                     player.health += drops[i].health; //Add 10 to the player's health
                     player.damage += drops[i].damage; //Add the drop's damage to the player
-                    player.weapon.ammo += drops[i].ammo;
+                    player.ammo += drops[i].ammo;
                 }
                 let index = drops.indexOf(drops[i]); //Remove the drop after it has been picked up
                 if (index > -1) {
@@ -388,20 +386,13 @@ function displayGame() {
             ctx.fillRect((camera.positionX + zombie[i].position[0]) - 4, (camera.positionY + zombie[i].position[1]) - 14, Math.round(zombie[i].health) / 2, 8) //Draw a smaller rectangle on top of the black one to display health
         }
 
-        const playerImage = new Image(); //Make a new image for the player
+        const playerImage = new Image(); 
 
-        if (frame > 1) { //If the player is punching
-            let animationImg = Math.floor(frame); //Round the animation's frame
-            
-        } else { //If player isn't punching
-            playerImage.src = player.images[player.direction]; //Set the player's image to walking in it's direction
-        }
-
-        if (frame > 1) { //If the player is punching
-            let animationImg = Math.floor(frame); //Round the animation's frame
-            playerImage.src = "../assets/ZombieIsland/player/punch-" + player.direction + "/punch" + animationImg.toString() + ".png"; //Find the according image for the animation frame
-        } else { //If player isn't punching
-            playerImage.src = player.images[player.direction]; //Set the player's image to walking in it's direction
+        if (frame > 1) { 
+            let animationImg = Math.floor(frame); 
+            playerImage.src = "../assets/ZombieIsland/player/punch-" + player.direction + "/punch" + animationImg.toString() + ".png";
+        } else { 
+            playerImage.src = player.images[player.direction]; 
         }
 
         ctx.drawImage(playerImage, camera.positionX + player.position[0], camera.positionY + player.position[1]) //Draw the player
@@ -433,12 +424,12 @@ function displayGame() {
             itemImage.src = player.inventory[i].image;
             ctx.drawImage(itemImage, itemPosition, 522)
             if (player.inventory[i].type == "range") {
-                if (player.inventory[i].ammo == 0) {
+                if (player.ammo == 0) {
                     ctx.fillStyle = "rgb(255, 0, 0)"
                 } else {
                     ctx.fillStyle = "rgb(255, 255, 255)";  
                 }
-                ctx.fillText(player.inventory[i].ammo, itemPosition + 1, 560)
+                ctx.fillText(player.ammo, itemPosition + 1, 560)
             }
             itemPosition += 42
         }

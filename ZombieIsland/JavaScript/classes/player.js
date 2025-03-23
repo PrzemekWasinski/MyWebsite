@@ -1,5 +1,5 @@
 export class Player {
-    constructor(score, health, timeMoved, size, position, fromPosition, toPosition, delayMove, images, direction, damage, inventory, weapon) {
+    constructor(score, health, timeMoved, size, position, fromPosition, toPosition, delayMove, images, direction, damage, inventory, weapon, ammo) {
         this.score = score;
         this.health = health; 
         this.timeMoved = timeMoved; 
@@ -13,6 +13,7 @@ export class Player {
         this.damage = damage; 
         this.inventory = inventory;
         this.weapon = weapon;
+        this.ammo = ammo;
     }
 
     move(x, y) { 

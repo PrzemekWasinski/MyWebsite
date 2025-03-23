@@ -1,11 +1,10 @@
 import { Projectile } from "./projectile.js";
 
 export class Weapon {
-    constructor(name, damage, type, ammo, speed, image) {
+    constructor(name, damage, type, speed, image) {
         this.name = name;
         this.damage = damage;
         this.type = type;
-        this.ammo = ammo;
         this.speed = speed;
         this.image = image;
     }
@@ -63,9 +62,9 @@ export class Weapon {
             }
 
         } else if (this.type == "range") {
-            if (this.ammo > 0) {
+            if (attacker.ammo > 0) {
                 projectiles.push(new Projectile(attacker.direction, 0, [40, 40], [attacker.position[0], attacker.position[1]], [attacker.fromPosition[0], attacker.fromPosition[1]], [attacker.toPosition[0], attacker.toPosition[1]], 40, "../assets/ZombieIsland/projectiles/bullet.png"))
-                this.ammo -= 1
+                attacker.ammo -= 1
             }
         }
     }
