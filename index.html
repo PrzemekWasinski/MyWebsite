@@ -1,211 +1,334 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Przemek</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <link rel="icon" href="/assets/icons/favicon.png" type="image/x-icon">
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Przemek's Portfolio</title>
+	<link rel="stylesheet" href="./main19.css">
+	<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
 
-</head>
+
 <body>
-    <!-- Navigation Bar -->
-    <nav>
-        <div class="container">
-            <div class="left-nav">
-                <a href="https://github.com/PrzemekWasinski" target="_blank"><i class="fab fa-github"></i></a>
-                <a href="https://www.linkedin.com/in/przemek-wasinski-2833602b1/" target="_blank"><i class="fab fa-linkedin"></i></a>
-                <a href="mailto:przemekwasinski05@gmail.com"><i class="fas fa-envelope"></i></a>
-            </div>
-            <div class="right-nav">
-                <ul>
-                    <li><a href="#intro">Home  </a></li>
-                    <li><a href="#projects">  Projects  </a></li>
-                    <li><a href="#about">  About Me  </a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+	<!-- Cursor Grid Effect -->
+	<div class="cursor-grid" id="cursorGrid"></div>
 
-    <!-- Intro Section -->
-    <header id="intro"> 
-        <div class="container">
-            <div class="content-wrapper">
-                <div class="header-content">
-                    <img src="/assets/other/me.JPG" alt="Przemek's Picture" class="profile-picture">
-                    <div>
-                        <h1>Hallo I'm Przemek</h1>
-                        <p id="intro-text">
-                            Currently a 2nd year Computer Science Student and 
-                            <br>
-                            Part Time Teacher Assistant at Middlesex University.
-                            <br>
-                            London, United Kingdom
-                        </p>
-                        <div class="skills-section">
-                            <h3>My Skills:</h3>
-                            <div class="skills-logos">
-                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-plain-wordmark.svg" alt="Node.js Plain Wordmark" class="skill-logo">
-                                <img src="https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/express-js-icon.svg" alt="Express.js" class="tech-icon">
-                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" alt="PostgreSQL" class="skill-logo">
-                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-plain-wordmark.svg" alt="MongoDB" class="tech-icon">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- Scroll Text -->
-            <div class="scroll-text">
-                <p>Scroll to see more...</p>
-            </div>
-        </div>
-    </header>
+	<!-- Section 1: Full Screen Intro with Profile Layout -->
+	<section id="intro">
+		<div class="stars" id="stars"></div>
 
-    <!-- Projects Section -->
-    <section id="projects">
-        <div class="container">
-            <div class="project-list">
-                <h2>Projects</h2>
-                <div class="project-item">
-                    <div class="project-content left">
-                        <div class="project-text">
-                            <h3>Live Plane Tracker</h3>
-                            <p>
-                                This project is a Live Plane Tracker using a Raspberry Pi with an ADS-B receiver which catches data received from aircraft flying above
-                                which is then uploaded using a Python script to Firebase and retrieved by a Kotlin app letting the user see planes near them.
-                            </p>
-                            <div class="project-technologies">
-                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python" class="tech-icon">
-                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kotlin/kotlin-original.svg" alt="Kotlin" class="skill-logo">
-                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg" alt="Firebase" class="skill-logo">
-                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/raspberrypi/raspberrypi-original.svg" alt="Raspberry Pi" class="tech-icon"> 
-                            </div>
-                            <br>
-                            <a href="https://github.com/PrzemekWasinski/PlaneTracker" target="_blank">View on GitHub</a>
-                        </div>
-                        <img src="/assets/projects/plane_tracker.jpg" alt="Project 2 Image" class="project-image">
-                    </div>
-                </div>
-                
-                <div class="project-item">
-                    <div class="project-content right">
-                        <div class="project-text">
-                            <h3>F1 Chat</h3>
-                            <p>
-                                This is an F1 themed social media website which was a university project that got 90/100.
-                                It includes a login and register system, posting, liking and commenting on posts, following
-                                and unfollowing users, searching for posts and users, and displaying past F1 season results. 
-                            </p>
-                            <div class="project-technologies">
-                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-plain-wordmark.svg" alt="Node.js Plain Wordmark" class="skill-logo">
-                                <img src="https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/express-js-icon.svg" alt="Express.js" class="tech-icon">
-                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-plain-wordmark.svg" alt="MongoDB" class="tech-icon">
-                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript" class="tech-icon">
-                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML5" class="tech-icon">
-                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS" class="tech-icon">
-                            </div>
-                            <br>
-                            <a href="https://github.com/PrzemekWasinski/F1Chat" target="_blank">View on GitHub</a>
-                        </div>
-                        <img src="/assets/projects/f1chat.png" class="project-image">
-                    </div>
-                </div>
+		<!-- Social Links -->
+		<div class="social-links">
+			<a href="https://www.linkedin.com/in/przemek-wasinski-2833602b1/" target="_blank" rel="noopener noreferrer"
+				class="social-link linkedin" title="LinkedIn">
+				<img src="https://img.icons8.com/ios-filled/50/linkedin.png" alt="LinkedIn" />
+			</a>
+			<a href="https://github.com/PrzemekWasinski" target="_blank" rel="noopener noreferrer"
+				class="social-link github" title="GitHub">
+				<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub" />
+			</a>
+			<a href="mailto:przemekwasinski05@gmail.com" class="social-link email" title="Email">
+				<img src="https://img.icons8.com/material-outlined/24/ffffff/new-post.png" alt="Email" />
+			</a>
+		</div>
 
-                <div class="project-item">
-                    <div class="project-content left">
-                        <div class="project-text">
-                            <h3>Fishing Game</h3>
-                            <p>
-                                This is a GUI fishing game including a cursor minigame where the user has to keep
-                                their cursor within a moving circle to catch a fish. The game also includes selling fish 
-                                for money, buying new fishing rods, different rods and fish with different stats and 
-                                a rod durability system.
-                            </p>
-                            <div class="project-technologies">
-                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python" class="tech-icon">
-                            </div>
-                            <br>
-                            <a href="https://github.com/PrzemekWasinski/FishingGame" target="_blank">View on GitHub</a>
-                        </div>
-                        <img src="/assets/projects/fishing_game.png" alt="Project 1 Image" class="project-image">
-                    </div>
-                </div>
-    
-                <div class="project-item">
-                    <div class="project-content right">
-                        <div class="project-text">
-                            <h3>Zombie Island</h3>
-                            <p>
-                                This was a University project which got 98/100. It is a 2D web zombie survival game which features a
-                                health system for the player and enemies, randomised items dropped from defeated enemies and a customisable
-                                map.
-                                <br>
-                                <br>
-                                I'm currently making the game online with a bigger map, storyline, quests, weapons and features which will be 
-                                under the domain https://zombieisland.online
-                            </p>
-                            <div class="project-technologies">
-                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JS" class="tech-icon">
-                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML5" class="tech-icon">
-                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS" class="tech-icon">
-                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-plain-wordmark.svg" alt="Node.js Plain Wordmark" class="skill-logo">
-                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" alt="PostgreSQL" class="skill-logo">
-                            </div>
-                            <br>
-                            <a href="https://zombieisland.online" target="_blank">Play</a>
-                            <br>
-                            <br>
-                            <a href="https://github.com/PrzemekWasinski/ZombieIsland" target="_blank">View on GitHub</a>
-                        </div>
-                        <img src="/assets/projects/zombie_island.png" alt="Project 2 Image" class="project-image">
-                    </div>
-                </div>
+		<div class="intro-content">
+			<div class="profile-image">
+				<img src="./assets/other/me.JPG" alt="Profile Photo" />
+			</div>
+			<div class="intro-text">
+				<h1>Hallo I'm Przemek</h1>
+				<p class="description"> Backend Developer</p>
+				<div class="location">
+					<img src="https://img.icons8.com/ios-filled/50/ffffff/marker.png" alt="Location icon" />
+					<span>London, United Kingdom</span>
+				</div>
+			</div>
+		</div>
+		<div class="scroll-indicator">
+			<span class="scroll-text">Scroll to see more</span>
+			<div class="scroll-arrow"></div>
+		</div>
+	</section>
 
-                <div class="project-item">
-                    <div class="project-content left">
-                        <div class="project-text">
-                            <h3>CLI Chess</h3>
-                            <p>
-                                This is a fully working chess game made in Java which includes a system to check if the user's move
-                                is legal, whether there is a check, checkmate or stalemate, and prints out a board with the 
-                                current positions on every turn.
-                            </p>
-                            <div class="project-technologies">
-                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Python" class="tech-icon">
-                            </div>
-                            <br>
-                            <a href="https://github.com/PrzemekWasinski/Chess" target="_blank">View on GitHub</a>
-                        </div>
-                        <img src="/assets/projects/chess.png" alt="Project 1 Image" class="project-image">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+	<!-- Section 2: Modern Tech Stack -->
+	<section id="tech-stack">
+		<h2 class="tech-stack-title">My most used Technologies</h2>
+		<div class="tech-grid">
 
-    <section id="about">
-        <div class="container">
-            <h2>About Me</h2>
-            <div class="about-content">
-                <p>
-                    I'm a 20 year old Computer Science student from Warsaw, Poland living in London. I'm working towards 
-                    specialising in Backend Development and I enjoy building software that helps hobbies and improves
-                    efficiency of everyday tasks.
-                </p>
-                <p>
-                    Other than programming I enjoy playing Chess, Formula 1 and Photography, mainly Planespotting. 
-                    I visit airports and events around London photographing all types of aircraft.
-                </p>
-            </div>
-        </div>
-    </section>
-    
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <p>Thank you for reading this far :)</p>
-        </div>
-    </footer>
+			<div class="tech-card">
+				<a target="_blank" class="tech-icon" rel="noopener noreferrer">
+					<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-plain-wordmark.svg"
+						alt="Node.js Logo" />
+				</a>
+				<div class="tech-info">
+					<h3>Node.js</h3>
+				</div>
+			</div>
+
+			<div class="tech-card">
+				<a target="_blank" class="tech-icon" rel="noopener noreferrer">
+					<img src="https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/express-js-icon.svg"
+						alt="Express Logo" />
+				</a>
+				<div class="tech-info">
+					<h3>Express</h3>
+				</div>
+			</div>
+
+			<div class="tech-card">
+				<a target="_blank" class="tech-icon" rel="noopener noreferrer">
+					<img src="https://git-scm.com/images/logos/downloads/Git-Icon-1788C.png" alt="Git Logo" />
+				</a>
+				<div class="tech-info">
+					<h3>Git</h3>
+				</div>
+			</div>
+
+			<div class="tech-card">
+				<a target="_blank" class="tech-icon" rel="noopener noreferrer">
+					<img src="https://www.postgresql.org/media/img/about/press/elephant.png" alt="PostgreSQL Logo" />
+				</a>
+				<div class="tech-info">
+					<h3>PostgreSQL</h3>
+				</div>
+			</div>
+
+			<div class="tech-card">
+				<a target="_blank" class="tech-icon" rel="noopener noreferrer">
+					<img src="https://www.vectorlogo.zone/logos/supabase/supabase-icon.svg" alt="Supabase Logo" />
+				</a>
+				<div class="tech-info">
+					<h3>Supabase</h3>
+				</div>
+			</div>
+
+			<div class="tech-card">
+				<a target="_blank" class="tech-icon" rel="noopener noreferrer">
+					<img src="https://img.icons8.com/color/512/firebase.png" alt="Firebase Logo" />
+				</a>
+				<div class="tech-info">
+					<h3>Firebase</h3>
+				</div>
+			</div>
+
+		</div>
+	</section>
+
+	<!-- Section 3: Project Cards with Alternating Layout -->
+	<section id="projects">
+		<h2 class="projects-title">My Projects</h2>
+
+		<!-- Project 1: Text left, Images right (odd) -->
+		<div class="project-card">
+			<div class="project-info">
+				<h2>Real-Time Aircraft Tracker</h2>
+				<p>
+					This is a live aircraft tracker built using a Raspberry Pi and an ADS-B receiver which captures
+					broadcast signals from nearby planes. The Raspberry Pi then processes this data,
+					plots the planes on a display and uploads them to a Firebase database.
+					<br>
+					A Kotlin mobile app then retrieves the data from Firebase and compares the aircraft coordinates to
+					the user's current location. If nearby planes are detected, the app notifies the user in real time.
+				</p>
+
+				<div class="live-stats-title" id="stats-title">Live Stats from today</div>
+				<ul id="realtime-stats">
+					<li>Loading real-time stats...</li>
+				</ul>
+
+				<div class="tech-used">
+					<div class="tech-logo">
+						<img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Python-logo-notext.svg"
+							alt="Python" />
+					</div>
+					<div class="tech-logo">
+						<img src="https://www.gstatic.com/mobilesdk/160503_mobilesdk/logo/2x/firebase_28dp.png"
+							alt="Firebase" />
+					</div>
+					<div class="tech-logo">
+						<img src="https://img.icons8.com/color/512/kotlin.png" alt="Kotlin" />
+					</div>
+					<div class="tech-logo">
+						<img src="https://img.icons8.com/color/512/raspberry-pi.png" alt="RaspberryPI" />
+					</div>
+				</div>
+			</div>
+
+			<div class="project-images">
+				<img src="./assets/projects/planetracker/20250611_122340.jpg" alt="Project 1 Screenshot 1" />
+				<img src="./assets/projects/planetracker/Screenshot_20250513_105454_Gallery.jpg"
+					alt="Project 1 Screenshot 2" />
+			</div>
+		</div>
+		</div>
+
+		<!-- Project 2: Text right, Images left (even) -->
+		<div class="project-card">
+			<div class="project-info">
+				<h2>Zombie Island</h2>
+				<p>
+					This was a University project which got 98/100. It is a 2D survival web game
+					which features a health and fighting system for the player and enemies, randomised items dropped
+					from defeated enemies and a customisable map.
+					<br>
+					I'm currently making the game online with a bigger map, storyline, quests, weapons
+					and features.
+				</p>
+				<div class="tech-used">
+					<div class="tech-logo">
+						<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-plain-wordmark.svg"
+							alt="Node.js" />
+					</div>
+					<div class="tech-logo">
+						<img src="https://img.icons8.com/color/512/javascript.png" alt="Javascript" />
+					</div>
+					<div class="tech-logo">
+						<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/Websocket_logo.svg/640px-Websocket_logo.svg.png"
+							alt="Websocket" />
+					</div>
+					<div class="tech-logo">
+						<img src="https://www.postgresql.org/media/img/about/press/elephant.png" alt="PostgreSQL" />
+					</div>
+					<div class="tech-logo">
+						<img src="https://www.vectorlogo.zone/logos/supabase/supabase-icon.svg" alt="Supabase" />
+					</div>
+				</div>
+			</div>
+
+			<div class="project-images">
+				<img src="./assets/projects/zombieisland/Screenshot 2025-06-11 122015-2.png"
+					alt="Project 1 Screenshot 1" />
+				<img src="./assets/projects/zombieisland/Screenshot 2025-06-11 121351-2.png"
+					alt="Project 1 Screenshot 2" />
+			</div>
+		</div>
+
+		<!-- Project 3: Text left, Images right (odd) -->
+		<div class="project-card">
+			<div class="project-info">
+				<h2>F1 Chat</h2>
+				<p>
+					This is an Formula 1 themed social media website which was a university project that got 90/100.
+					It includes a login and register system, posting, liking and commenting on posts, following
+					and unfollowing users, searching and flitering for posts & users and displaying past Formula 1
+					season results.
+				</p>
+				<div class="tech-used">
+					<div class="tech-logo">
+						<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-plain-wordmark.svg"
+							alt="Nodejs" />
+					</div>
+					<div class="tech-logo">
+						<img src="https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/express-js-icon.svg"
+							alt="Express" />
+					</div>
+					<div class="tech-logo">
+						<img src="https://img.icons8.com/color/512/javascript.png" alt="Javascript" />
+					</div>
+					<div class="tech-logo">
+						<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-plain-wordmark.svg"
+							alt="MongoDB" />
+					</div>
+				</div>
+			</div>
+
+			<div class="project-images">
+				<img src="./assets/projects/f1chat/Screenshot 2025-06-11 120903.png" alt="Project 1 Screenshot 1" />
+				<img src="./assets/projects/f1chat/Screenshot 2025-06-11 120951-2.png" alt="Project 1 Screenshot 2" />
+			</div>
+		</div>
+
+		<!-- Section 4: About Me -->
+		<section id="about">
+			<div class="about-cards">
+				<div class="about-me">
+					<h3>About Me</h3>
+					<p>
+						I'm currently a 2nd year Computer Science student and Teacher Assistant at Middlesex University
+						London,
+						I'm specialising in backend development learning Node.js, Express and working with SQL
+						databases. I enjoy
+						turning concepts and ideas into real world projects that automate tasks and bring use to people.
+						<br>
+						<br>
+						Other than programming I enjoy playing Chess, watching F1 and Photography, mainly planespotting
+						I like
+						visiting airports and aviation events around London.
+					</p>
+				</div>
+				<div class="experience-timeline">
+					<h3>Work Experience</h3>
+					<ul>
+						<li><strong>2024 - Present:</strong> Web Developer - Freelance</li>
+						<li><strong>2024 - 2025:</strong> CS Teacher Assistant - Middlesex University</li>
+						<li><strong>2022 - 2023:</strong> IoT & Network Technician - WeMar Construction</li>
+					</ul>
+				</div>
+			</div>
+		</section>
+
+		<script src="./script.js"> </script>
+		<script>
+			const firebaseConfig = {
+				apiKey: "AIzaSyAlTWyoFe_Ihvc9M6FBRDROgksEVo3fkxc",
+				authDomain: "rpi-flight-tracker.firebaseapp.com",
+				databaseURL: "https://rpi-flight-tracker-default-rtdb.europe-west1.firebasedatabase.app",
+				projectId: "rpi-flight-tracker",
+				storageBucket: "rpi-flight-tracker.firebasestorage.app",
+				messagingSenderId: "463800203443",
+				appId: "1:463800203443:web:4fb7837ed046522aa7d8c6",
+				measurementId: "G-S29VXBBCDT"
+			};
+
+
+			// Initialize Firebase
+			firebase.initializeApp(firebaseConfig);
+			const database = firebase.database();
+
+			// Function to get today's date in YYYY-MM-DD format
+			function getTodayDate() {
+				const today = new Date();
+				const year = today.getFullYear();
+				const month = String(today.getMonth() + 1).padStart(2, '0');
+				const day = String(today.getDate()).padStart(2, '0');
+				return `${year}-${month}-${day}`;
+			}
+
+			// Function to fetch and display stats
+			function fetchAndDisplayStats() {
+				const todayDate = getTodayDate();
+				const statsRef = database.ref(`${todayDate}/stats`);
+
+				statsRef.on('value', (snapshot) => {
+					const statsData = snapshot.val();
+					const statsList = document.getElementById('realtime-stats');
+
+					if (statsData) {
+						const formatTopItem = (item) => {
+							if (!item) return '<strong>N/A</strong>';
+							if (typeof item === 'string') return `<strong>${item}</strong>`;
+							return `<strong>${item.name}</strong> <span class="count">(${item.count} signals received from ${item.name} planes)</span>`;
+						};
+
+						statsList.innerHTML = `
+							<li><span class="label">Total Signals Received:</span> <strong>${statsData.total || 0}</strong></li>
+							<li><span class="label">Most Common Airline:</span> ${formatTopItem(statsData.top_airline)}</li>
+							<li><span class="label">Most Common Manufacturer:</span> ${formatTopItem(statsData.top_manufacturer)}</li>
+							${statsData.top_model ? `<li><span class="label">Most Common Model:</span> ${formatTopItem(statsData.top_model)}</li>` : ''}
+							<li><span class="label">Last Updated At:</span> <strong>${statsData.last_updated || 'N/A'}</strong></li>
+						`;
+					} else {
+						statsList.innerHTML = '<li>No data available today</li>';
+					}
+				});
+			}
+
+
+			// Call the function when the page loads
+			document.addEventListener('DOMContentLoaded', fetchAndDisplayStats);
+		</script>
 </body>
+
 </html>
