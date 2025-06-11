@@ -126,7 +126,7 @@
 				<h2>Real-Time Aircraft Tracker</h2>
 				<p>
 					This is a live aircraft tracker built using a Raspberry Pi and an ADS-B receiver which captures
-					broadcast signals from nearby planes. The Raspberry Pi then processes this data,
+					broadcast signals from planes up to 200km away. The Raspberry Pi then processes this data,
 					plots the planes on a display and uploads them to a Firebase database.
 					<br>
 					A Kotlin mobile app then retrieves the data from Firebase and compares the aircraft coordinates to
@@ -314,9 +314,9 @@
 
 						statsList.innerHTML = `
 							<li><span class="label">Total Signals Received:</span> <strong>${statsData.total || 0}</strong></li>
-							<li><span class="label">Most Common Airline:</span> ${formatTopItem(statsData.top_airline)}</li>
-							<li><span class="label">Most Common Manufacturer:</span> ${formatTopItem(statsData.top_manufacturer)}</li>
-							${statsData.top_model ? `<li><span class="label">Most Common Model:</span> ${formatTopItem(statsData.top_model)}</li>` : ''}
+							<li><span class="label">Top Airline:</span> ${formatTopItem(statsData.top_airline)}</li>
+							<li><span class="label">Top Manufacturer:</span> ${formatTopItem(statsData.top_manufacturer)}</li>
+							${statsData.top_model ? `<li><span class="label">Top Model:</span> ${formatTopItem(statsData.top_model)}</li>` : ''}
 							<li><span class="label">Last Updated At:</span> <strong>${statsData.last_updated || 'N/A'}</strong></li>
 						`;
 					} else {
